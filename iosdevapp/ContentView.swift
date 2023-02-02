@@ -8,14 +8,8 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     @State private var text: String = ""
-    let api = "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"
-    
-//    func BtnGenerate() {
-//        let
-//    }
 
     var body: some View {
         ScrollView {
@@ -24,6 +18,7 @@ struct ContentView: View {
                     Text("AI GENERATE IMAGES")
                 }
                 .padding(20)
+                .font(.system(.title2, weight: .heavy))
                 
                 Image("Screenshot 2022-11-04 at 2.26.35 PM")
                     .resizable()
@@ -38,8 +33,6 @@ struct ContentView: View {
                 
                 .multilineTextAlignment(
                     .center)
-//                Color.red
-//                .background(Color.gray)
                     .padding(50)
                 Button {
                     Task {
