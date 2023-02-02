@@ -18,8 +18,12 @@ struct ContentView: View {
 //    }
 
     var body: some View {
-        NavigationView {
+        ScrollView {
             VStack {
+                Section {
+                    Text("AI GENERATE IMAGES")
+                }
+                .padding(20)
                 
                 Image("Screenshot 2022-11-04 at 2.26.35 PM")
                     .resizable()
@@ -50,7 +54,7 @@ struct ContentView: View {
                         .cornerRadius(10)
                         .tint(.white)
                 }
-//                Spacer()
+                Spacer()
             }
             .navigationTitle("AI Image Generator")
             .multilineTextAlignment(.leading)
