@@ -5,58 +5,59 @@
 //  Created by Leonit Ejupi on 31.01.23.
 //
 
-
 import SwiftUI
 
 struct ContentView: View {
-    @State private var text: String = ""
-
+    @StateObject var viewModel = ModelView()
+    @State private var text: String = "Two astronauts"
+    //    private var openai: OpenAI?
+    
+    
     var body: some View {
-        ScrollView {
-            VStack {
-                Section {
-                    Text("AI GENERATE IMAGES")
+        VStack {
+            Text("AI GENERATE IMAGES")
+            
+            Form {
+                AsyncImage(url: viewModel.imageURL) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
                 }
-                .padding(20)
-                .font(.system(.title2, weight: .heavy))
-                
-                Image("Screenshot 2022-11-04 at 2.26.35 PM")
-                    .resizable()
-                    .frame(width: 300,height: 250)
-                    .aspectRatio(contentMode: .fill)
-                
-                TextField(
-                "Type to generate an image",
-                text: $text,
-                axis: .vertical
-                ).textFieldStyle(.roundedBorder)
-                
-                .multilineTextAlignment(
-                    .center)
-                    .padding(50)
-                Button {
-                    Task {
-                        
-                    }
-                } label: {
-                    Text("Generate Images")
-                        .padding()
-                        .font(.title2)
-                        .buttonStyle(.borderedProminent)
-                        .background(.pink)
-                        .cornerRadius(10)
-                        .tint(.white)
+                placeholder: {
+                VStack {
+                    Image(systemName: "photo.on.rectangle.angled")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40, height: 40)
                 }
-                Spacer()
+                .frame(width: 300, height: 300)
             }
-            .navigationTitle("AI Image Generator")
-            .multilineTextAlignment(.leading)
+                
+                TextField("Describe the image you want",
+                          text: $text,
+                          axis: .vertical)
+                .lineLimit(10)
+                .lineSpacing(5)
+                
+                HStack {
+                    Spacer()
+                    Button("Generate Image") {
+                        Task {
+                            await viewModel.generateImage(withText: text)
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(false)
+                    .padding(.vertical)
+                    Spacer()
+                }
+            }
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
