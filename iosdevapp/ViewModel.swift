@@ -22,7 +22,7 @@ final class ViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
         
         let dictionary: [String: Any] = [
             "prompt": text,
