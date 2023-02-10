@@ -20,15 +20,22 @@ struct GenerateView: View {
                         .resizable()
                         .scaledToFit()
                 }
-                placeholder: {
+            placeholder: {
                 VStack {
-                    Image(systemName: "photo.on.rectangle.angled")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
+                    if !viewModel.isLoading {
+                        Image(systemName: "photo.on.rectangle.angled")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                    } else {
+                        ProgressView()
+                            .padding(.bottom, 12)
+                        Text("AI is Exploring...")
+                    }
                 }
-                .frame(width: 300, height: 300)
-            }
+                        .frame(width: 300, height: 300)
+                }
+            
                 TextField("Describe the image you want",
                           text: $text,
                           axis: .vertical)
@@ -43,7 +50,7 @@ struct GenerateView: View {
                         }
                     }
                     .buttonStyle(.borderedProminent)
-                    .disabled(false)
+                    .disabled(viewModel.isLoading)
                     .padding(.vertical)
                     Spacer()
                 }

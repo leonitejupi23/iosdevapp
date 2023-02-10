@@ -10,6 +10,7 @@ import Foundation
 final class ViewModel: ObservableObject {
     private let urlSession: URLSession
     @Published var imageURL: URL?
+    @Published var isLoading = false
     
     init(urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
@@ -22,7 +23,7 @@ final class ViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
         
         let dictionary: [String: Any] = [
             "prompt": text,
@@ -33,10 +34,14 @@ final class ViewModel: ObservableObject {
         urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: dictionary)
         
         do {
+            DispatchQueue.main.async {
+                self.isLoading = true
+            }
             let (data, _) = try await urlSession.data(for: urlRequest)
             let model = try JSONDecoder().decode(ModelResponse.self, from: data)
             
             DispatchQueue.main.async {
+                self.isLoading = false
                 guard let firstModel = model.data.first else {
                     return
                 }
