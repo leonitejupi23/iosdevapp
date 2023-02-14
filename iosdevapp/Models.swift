@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct DataResponse: Decodable {
+struct ImageURL: Decodable {
     let url: String
 }
 
-struct ModelResponse: Decodable {
-    let data: [DataResponse]
+struct GenerateImageResponse: Decodable {
+    let data: [ImageURL]
 }

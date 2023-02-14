@@ -13,13 +13,17 @@ struct GenerateView: View {
     
     var body: some View {
         VStack {
+            Color.red
+                .frame(minWidth: nil, idealWidth: nil, maxWidth: nil, minHeight: nil, idealHeight: nil, maxHeight: 10)
             Text("AI GENERATE IMAGES")
             Form {
                 AsyncImage(url: viewModel.imageURL) { image in
                     image
                         .resizable()
                         .scaledToFit()
+                    
                 }
+                
             placeholder: {
                 VStack {
                     if !viewModel.isLoading {
@@ -44,19 +48,25 @@ struct GenerateView: View {
                 
                 HStack {
                     Spacer()
+                    
                     Button("Generate Image") {
                         Task {
                             await viewModel.generateImage(withText: text)
                         }
                     }
+                    
                     .buttonStyle(.borderedProminent)
                     .disabled(viewModel.isLoading)
                     .padding(.vertical)
+                    
                     Spacer()
+                    
                 }
             }
         }
+        
     }
+    
 }
 
 struct GenerateView_Previews: PreviewProvider {

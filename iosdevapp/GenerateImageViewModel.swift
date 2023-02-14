@@ -7,10 +7,12 @@
 
 import Foundation
 
-final class ViewModel: ObservableObject {
+final class GenerateImageViewModel: ObservableObject {
     private let urlSession: URLSession
     @Published var imageURL: URL?
     @Published var isLoading = false
+    @Published var txt = "Two astronauts"
+
     
     init(urlSession: URLSession = URLSession.shared) {
         self.urlSession = urlSession
@@ -23,7 +25,7 @@ final class ViewModel: ObservableObject {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("Bearer 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", forHTTPHeaderField: "Authorization")
         
         let dictionary: [String: Any] = [
             "prompt": text,
@@ -38,7 +40,7 @@ final class ViewModel: ObservableObject {
                 self.isLoading = true
             }
             let (data, _) = try await urlSession.data(for: urlRequest)
-            let model = try JSONDecoder().decode(ModelResponse.self, from: data)
+            let model = try JSONDecoder().decode(GenerateImageResponse.self, from: data)
             
             DispatchQueue.main.async {
                 self.isLoading = false
@@ -53,3 +55,4 @@ final class ViewModel: ObservableObject {
         }
     }
 }
+
