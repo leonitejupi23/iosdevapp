@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct GenerateView: View {
-    @State var text: String = "Two astronauts"
-    @StateObject var viewModel = ViewModel()
+struct GenerateImageView: View {
+    @StateObject var viewModel = GenerateImageViewModel()
     
     var body: some View {
         VStack {
@@ -21,7 +20,6 @@ struct GenerateView: View {
                     image
                         .resizable()
                         .scaledToFit()
-                    
                 }
                 
             placeholder: {
@@ -37,40 +35,36 @@ struct GenerateView: View {
                         Text("AI is Exploring...")
                     }
                 }
-                        .frame(width: 300, height: 300)
-                }
-            
+                .frame(width: 300, height: 300)
+            }
+                
                 TextField("Describe the image you want",
-                          text: $text,
+                          text: $viewModel.text,
                           axis: .vertical)
-                .lineLimit(10)
-                .lineSpacing(5)
+                          .lineLimit(10)
+                          .lineSpacing(5)
                 
                 HStack {
                     Spacer()
-                    
                     Button("Generate Image") {
-                        Task {
-                            await viewModel.generateImage(withText: text)
+                    Task {
+                            await viewModel.generateImage(withText: viewModel.text)
                         }
                     }
-                    
                     .buttonStyle(.borderedProminent)
-                    .disabled(viewModel.isLoading)
+                    .disabled(viewModel.text.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty)
                     .padding(.vertical)
-                    
                     Spacer()
-                    
                 }
             }
         }
         
     }
-    
 }
 
 struct GenerateView_Previews: PreviewProvider {
     static var previews: some View {
-        GenerateView()
+        GenerateImageView()
     }
 }
+
