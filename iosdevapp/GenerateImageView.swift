@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GenerateImageView: View {
     @StateObject var viewModel = GenerateImageViewModel()
+    @State private var isLoading = false
     
     var body: some View {
         VStack {
@@ -20,19 +21,33 @@ struct GenerateImageView: View {
                     image
                         .resizable()
                         .scaledToFit()
+                        .overlay(alignment: .bottomTrailing, content: {
+                            Button {
+                                viewModel.saveImageToGallery()
+                            } label: {
+                                HStack {
+                                    Image(systemName: "arrow.down.circle.fill")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .shadow(color: .black, radius: 0.2)
+                                }
+                                .padding(8)
+                                .foregroundColor(.green)
+                            }
+                        })
                 }
                 
             placeholder: {
                 VStack {
-                    if !viewModel.isLoading {
+                    if isLoading {
+                        ProgressView()
+                            .padding(.bottom, 12)
+                        Text("AI is Exploring...")
+                    } else {
                         Image(systemName: "photo.on.rectangle.angled")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 40, height: 40)
-                    } else {
-                        ProgressView()
-                            .padding(.bottom, 12)
-                        Text("AI is Exploring...")
                     }
                 }
                 .frame(width: 300, height: 300)
@@ -47,8 +62,10 @@ struct GenerateImageView: View {
                 HStack {
                     Spacer()
                     Button("Generate Image") {
-                    Task {
+                        Task {
+                            isLoading = true
                             await viewModel.generateImage(withText: viewModel.text)
+                            isLoading = false
                         }
                     }
                     .buttonStyle(.borderedProminent)
@@ -62,9 +79,4 @@ struct GenerateImageView: View {
     }
 }
 
-struct GenerateView_Previews: PreviewProvider {
-    static var previews: some View {
-        GenerateImageView()
-    }
-}
 
