@@ -1,0 +1,41 @@
+
+# Xcode
+#
+.DS_Store
+*/build/*
+*/DerivedData/*
+*/xcuserdata/*
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.xcscmblueprint
+*.swiftpm
+*.xcworkspace
+
+# CocoaPods
+#
+Pods
+*.lock
+Profile
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+DerivedData
+*.moved-aside
+*.xcuserstate
+Podfile.lock
+Pods/Manifest.lock
+
+# Swift Package Manager
+#
+.build
+Package.resolved
+
+# Carthage
+#
+Carthage/Build
