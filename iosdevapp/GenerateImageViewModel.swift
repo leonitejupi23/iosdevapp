@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class GenerateImageViewModel: ObservableObject {
     private let urlSession: URLSession
@@ -55,6 +56,16 @@ class GenerateImageViewModel: ObservableObject {
             print(error)
         }
     }
+    func saveImageToGallery() {
+        guard let imageURL = imageURL else {
+            return
+        }
+        DispatchQueue.global(qos: .background).async {
+            let data = try! Data(contentsOf: imageURL)
+            let image = UIImage(data: data)!
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
+    }
 }
 
 struct GenerateImageRequest: Encodable {
@@ -62,5 +73,3 @@ struct GenerateImageRequest: Encodable {
     let n: Int
     let size: String
 }
-
-
