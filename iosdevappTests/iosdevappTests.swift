@@ -34,4 +34,10 @@ final class iosdevappTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
         cancellable.cancel()
     }
-}
+    
+    func testSaveToGallery() {
+        let viewImageModel = GenerateImageViewModel()
+        viewImageModel.imageURL = URL(string: "https://example.com/image.png")
+        viewImageModel.saveImageToGallery()
+    }
+  }
