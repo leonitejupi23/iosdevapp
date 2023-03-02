@@ -20,3 +20,7 @@ struct GenerateImageRequest: Encodable {
     let n: Int
     let size: String
 }
+
+struct APISecretData: Decodable {
+    let apiKey: String
+}
