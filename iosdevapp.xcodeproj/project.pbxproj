@@ -55,7 +55,6 @@
 		C7B1C19F29894ACC0005756E /* iosdevappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosdevappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B1C1A329894ACC0005756E /* iosdevappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosdevappUITests.swift; sourceTree = "<group>"; };
 		C7B1C1A529894ACC0005756E /* iosdevappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosdevappUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C7B1C21E298C07880005756E /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +106,6 @@
 			children = (
 				C780AC9D29B0967100458887 /* Models */,
 				C780AC9A29AF412500458887 /* resources */,
-				C7B1C21E298C07880005756E /* Directions.geojson */,
 				C7B1C18729894AC90005756E /* iosdevapp */,
 				C7B1C19829894ACC0005756E /* iosdevappTests */,
 				C7B1C1A229894ACC0005756E /* iosdevappUITests */,
