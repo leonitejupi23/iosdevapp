@@ -13,10 +13,14 @@ enum JSONFileError : Error{
 
 func fileLoaderService(fileName: String) throws -> APISecretData {
     guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
-          let data = try? Data(contentsOf: url ),
-          let jsonData = try? JSONDecoder().decode(APISecretData.self, from: data)
-    else{
+          let data = try? Data(contentsOf: url),
+          let jsonData = try? JSONDecoder().decode(APISecretData.self, from: data),
+          let apiKeyData = Data(base64Encoded: jsonData.apiKey),
+          let apiKey = String(data: apiKeyData, encoding: .utf8)
+    else {
         throw JSONFileError.JSONFileNotFound
     }
-    return jsonData
+    
+    let decodedJsonData = APISecretData(apiKey: apiKey)
+    return decodedJsonData
 }
