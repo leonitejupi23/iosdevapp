@@ -459,7 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iosdevapp/Preview Content\"";
-				DEVELOPMENT_TEAM = SXKG49P2Q5;
+				DEVELOPMENT_TEAM = H7856N8BHP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iosdevapp/Info.plist;
@@ -473,7 +473,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ejupileo.iosdevapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diconium.salvador.leo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -489,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iosdevapp/Preview Content\"";
-				DEVELOPMENT_TEAM = SXKG49P2Q5;
+				DEVELOPMENT_TEAM = H7856N8BHP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iosdevapp/Info.plist;
@@ -503,7 +503,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ejupileo.iosdevapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diconium.salvador.leo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
