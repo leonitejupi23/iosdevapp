@@ -14,3 +14,13 @@ struct ImageURL: Decodable {
 struct GenerateImageResponse: Decodable {
     let data: [ImageURL]
 }
+
+struct GenerateImageRequest: Encodable {
+    let prompt: String
+    let n: Int
+    let size: String
+}
+
+struct APISecretData: Decodable {
+    let apiKey: String
+}

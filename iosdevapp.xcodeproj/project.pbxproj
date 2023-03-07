@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C73BB30629910D7C00008640 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C73BB30529910D7C00008640 /* Alamofire */; };
-		C73BB30929911ACD00008640 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C73BB30829911ACD00008640 /* OpenAIKit */; };
 		C73BB30D29926A7900008640 /* GenerateImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73BB30C29926A7900008640 /* GenerateImageViewModel.swift */; };
 		C73BB30F29926E4400008640 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73BB30E29926E4400008640 /* Models.swift */; };
 		C73BB3122993A1EB00008640 /* GenerateImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73BB3112993A1EB00008640 /* GenerateImageView.swift */; };
+		C780ACA129B0C14E00458887 /* SaveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780ACA029B0C14E00458887 /* SaveImage.swift */; };
+		C780ACA329B0CBCA00458887 /* APIKey.json in Resources */ = {isa = PBXBuildFile; fileRef = C780ACA229B0CBCA00458887 /* APIKey.json */; };
+		C780ACA529B0F1B200458887 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780ACA429B0F1B200458887 /* API.swift */; };
 		C7B1C18929894AC90005756E /* iosdevappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B1C18829894AC90005756E /* iosdevappApp.swift */; };
 		C7B1C18D29894ACC0005756E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B1C18C29894ACC0005756E /* Assets.xcassets */; };
 		C7B1C19029894ACC0005756E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B1C18F29894ACC0005756E /* Preview Assets.xcassets */; };
@@ -42,6 +43,9 @@
 		C73BB30E29926E4400008640 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		C73BB3102992900600008640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C73BB3112993A1EB00008640 /* GenerateImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateImageView.swift; sourceTree = "<group>"; };
+		C780ACA029B0C14E00458887 /* SaveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImage.swift; sourceTree = "<group>"; };
+		C780ACA229B0CBCA00458887 /* APIKey.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = APIKey.json; sourceTree = "<group>"; };
+		C780ACA429B0F1B200458887 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C7B1C18529894AC90005756E /* iosdevapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosdevapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B1C18829894AC90005756E /* iosdevappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosdevappApp.swift; sourceTree = "<group>"; };
 		C7B1C18C29894ACC0005756E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,7 +55,6 @@
 		C7B1C19F29894ACC0005756E /* iosdevappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosdevappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B1C1A329894ACC0005756E /* iosdevappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosdevappUITests.swift; sourceTree = "<group>"; };
 		C7B1C1A529894ACC0005756E /* iosdevappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosdevappUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C7B1C21E298C07880005756E /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C73BB30629910D7C00008640 /* Alamofire in Frameworks */,
-				C73BB30929911ACD00008640 /* OpenAIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +82,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C780AC9A29AF412500458887 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				C780ACA229B0CBCA00458887 /* APIKey.json */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		C780AC9D29B0967100458887 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C73BB30E29926E4400008640 /* Models.swift */,
+				C73BB30C29926A7900008640 /* GenerateImageViewModel.swift */,
+				C780ACA029B0C14E00458887 /* SaveImage.swift */,
+				C780ACA429B0F1B200458887 /* API.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C7B1C17C29894AC90005756E = {
 			isa = PBXGroup;
 			children = (
-				C7B1C21E298C07880005756E /* Directions.geojson */,
+				C780AC9D29B0967100458887 /* Models */,
+				C780AC9A29AF412500458887 /* resources */,
 				C7B1C18729894AC90005756E /* iosdevapp */,
 				C7B1C19829894ACC0005756E /* iosdevappTests */,
 				C7B1C1A229894ACC0005756E /* iosdevappUITests */,
@@ -108,8 +129,6 @@
 				C73BB3102992900600008640 /* Info.plist */,
 				C7B1C18829894AC90005756E /* iosdevappApp.swift */,
 				C73BB3112993A1EB00008640 /* GenerateImageView.swift */,
-				C73BB30C29926A7900008640 /* GenerateImageViewModel.swift */,
-				C73BB30E29926E4400008640 /* Models.swift */,
 				C7B1C18C29894ACC0005756E /* Assets.xcassets */,
 				C7B1C18E29894ACC0005756E /* Preview Content */,
 			);
@@ -158,8 +177,6 @@
 			);
 			name = iosdevapp;
 			packageProductDependencies = (
-				C73BB30529910D7C00008640 /* Alamofire */,
-				C73BB30829911ACD00008640 /* OpenAIKit */,
 			);
 			productName = iosdevapp;
 			productReference = C7B1C18529894AC90005756E /* iosdevapp.app */;
@@ -234,8 +251,6 @@
 			);
 			mainGroup = C7B1C17C29894AC90005756E;
 			packageReferences = (
-				C73BB30429910D7C00008640 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				C73BB30729911ACD00008640 /* XCRemoteSwiftPackageReference "OpenAIKit" */,
 			);
 			productRefGroup = C7B1C18629894AC90005756E /* Products */;
 			projectDirPath = "";
@@ -255,6 +270,7 @@
 			files = (
 				C7B1C19029894ACC0005756E /* Preview Assets.xcassets in Resources */,
 				C7B1C18D29894ACC0005756E /* Assets.xcassets in Resources */,
+				C780ACA329B0CBCA00458887 /* APIKey.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73BB30D29926A7900008640 /* GenerateImageViewModel.swift in Sources */,
+				C780ACA129B0C14E00458887 /* SaveImage.swift in Sources */,
 				C7B1C18929894AC90005756E /* iosdevappApp.swift in Sources */,
 				C73BB3122993A1EB00008640 /* GenerateImageView.swift in Sources */,
+				C780ACA529B0F1B200458887 /* API.swift in Sources */,
 				C73BB30F29926E4400008640 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +463,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iosdevapp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save images in your gallery generated by DALLE2.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -474,6 +493,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iosdevapp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save images in your gallery generated by DALLE2.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -607,38 +627,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C73BB30429910D7C00008640 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		C73BB30729911ACD00008640 /* XCRemoteSwiftPackageReference "OpenAIKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MarcoDotIO/OpenAIKit";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C73BB30529910D7C00008640 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C73BB30429910D7C00008640 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		C73BB30829911ACD00008640 /* OpenAIKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C73BB30729911ACD00008640 /* XCRemoteSwiftPackageReference "OpenAIKit" */;
-			productName = OpenAIKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C7B1C17D29894AC90005756E /* Project object */;
 }
